@@ -1,0 +1,70 @@
+# secondHashMap
+Here, I created a HashMap wich including a person name and his passport id
+
+
+package sample;
+
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public class Main{
+
+    public static void main(String[] args) {
+
+        //Create a HashMap
+        HashMap<Integer, String> peoplesId = new HashMap<>();
+        HashMap<Integer, String> peoplesId2 = new HashMap<>();
+
+        peoplesId.put(1234, "Alexandr Victorovich");
+        peoplesId.put(1324, "Donald Trump");
+        peoplesId.put(1454, "Loui Fernando");
+
+        peoplesId2.put(43243, "Nicoleta Conval");
+        peoplesId2.put(13213, " Valeria Anastasia");
+
+        //Search by ID or Key
+        String alexandr = peoplesId.get(1234);
+        System.out.println(alexandr);
+
+        //Remove a person from our database
+        peoplesId.remove(1234);
+        System.out.println(peoplesId);
+
+        //CHeck if we have a person in our database
+        System.out.println(peoplesId.containsKey(1234));
+        System.out.println(peoplesId.containsValue("Donald Trump"));
+
+        //Set our keys and values
+        Set<Integer> keys = peoplesId.keySet();
+        System.out.println("keys: " + keys);
+        //Put all the persons in ArraysList
+        ArrayList<String> listOfPerson = new ArrayList<>(peoplesId.values());
+        System.out.println("Values:" + listOfPerson);
+
+        //Check the size of our dataBase
+        System.out.println(peoplesId.size());
+
+        /*Clear our DB
+        peoplesId.clear();
+        System.out.println(peoplesId);
+        */
+
+        //Check if we have some elements in our DB
+        if(!peoplesId.isEmpty()){
+            System.out.println(peoplesId);
+        }
+
+        //Add the list of our second databaase in our first peoplesId
+        peoplesId.putAll(peoplesId2);
+
+        //Print all our map
+        for(Map.Entry entry: peoplesId.entrySet()){
+            System.out.println(entry);
+        }
+
+    }
+
+}
